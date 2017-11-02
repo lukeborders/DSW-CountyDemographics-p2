@@ -6,7 +6,7 @@ with open('county_demographics.json') as demographics_data:
 app = Flask(__name__)
 @app.route("/index.html")
 def main():
-    return render_template("index.html",options == get_state_options(counties))
+    return render_template("index.html",options = get_state_options(counties))
 def get_state_options(counties):
     options = ""
     dictStates = {}  # empty dictionary
