@@ -1,16 +1,22 @@
 from Flask import Flask, request, Markup, render_template, flash, Markup
 import os
 import json
-
+with open('county_demographics.json') as demographics_data:
+    counties = json.load(demographics_data)
 app = Flask(__name__)
 @app.route("/index.html")
+def main():
+    return render_template("index.html",options == get_state_options(counties))
 def get_state_options(counties):
-    for c in counties:
-        if c["counties"] == options += Markup("<option value=\"" + countyVar + "\">" + countyVar + "</option>"):
-            return countyVar
-def state_fact(state):
-    for s in counties:
-        if s["county"]["state"] == options += Markup("<option value=\"" + stateVar + "\">" + stateVar + "</option>"):
-            
+    options = ""
+    dictStates = {}  # empty dictionary
+    for d in counties:  # loops in empty dict adding states
+        if d["State"] in dictStates:
+            dictStates[d["State"]] += 1
+        else:
+            dictStates[d["State"]] = 1
+    for c in dictStates:
+        options += Markup("<option value=\"" + c + "\">" + c + "</option>")
+        return options
 if __name__ == '__main__':
     main()
