@@ -17,6 +17,5 @@ def get_state_options(state):
             dictStates[d["State"]] = 1
     for c in dictStates:
         options += Markup("<option value=\"" + c + "\">" + c + "</option>")
-        return render_template('index.html', options)
 if __name__ == '__main__':
     main()
