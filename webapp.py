@@ -10,7 +10,7 @@ def main():
 def get_state_options(state):
     options = ""
     dictStates = {}  # empty dictionary
-    for d in states:  # loops in empty dict adding states
+    for d in state:  # loops in empty dict adding states
         if d["State"] in dictStates:
             dictStates[d["State"]] += 1
         else:
