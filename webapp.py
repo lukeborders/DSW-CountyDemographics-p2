@@ -4,7 +4,7 @@ import json
 with open('county_demographics.json') as demographics_data:
     counties = json.load(demographics_data)
 app = Flask(__name__)
-@app.route("/index.html")
+@app.route('/')
 def main():
     return render_template("index.html",options = get_state_options(counties))
 def get_state_options(counties):
