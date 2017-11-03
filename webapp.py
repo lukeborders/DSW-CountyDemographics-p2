@@ -7,16 +7,16 @@ app = Flask(__name__)
 @app.route('/')
 def main():
     return render_template("index.html",options = get_state_options(counties))
-def get_state_options(counties):
+def get_state_options(state):
     options = ""
     dictStates = {}  # empty dictionary
-    for d in counties:  # loops in empty dict adding states
+    for d in states:  # loops in empty dict adding states
         if d["State"] in dictStates:
             dictStates[d["State"]] += 1
         else:
             dictStates[d["State"]] = 1
     for c in dictStates:
         options += Markup("<option value=\"" + c + "\">" + c + "</option>")
-        return options
+        return render_template('index.html', options)
 if __name__ == '__main__':
     main()
