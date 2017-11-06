@@ -18,5 +18,12 @@ def get_state_options(state):
     for c in dictStates:
         options += Markup("<option value=\"" + c + "\">" + c + "</option>")
     return options
+@app.route('/response.html')
+def render_response():
+    stateName = request.args["State"]
+    if stateName == counties["State"]:
+        reply = stateName
+    return render_template('response.html',stateNameVar = reply)
+ 
 if __name__ == '__main__':
     main()
