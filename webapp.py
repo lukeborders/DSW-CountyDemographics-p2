@@ -29,7 +29,7 @@ def get_fact(state):
             fact += c["Miscellaneous"]["Percent Female"]
             numCount += 1
     fact = round(fact/numCount,2)
-    funfact = Markup("<p>" + "Percent Female in " + state + " is, " + str(fact) + "</p>")
+    funfact = Markup("<p>" + "Percent Female in " + state + " is, " + str(fact) + " %" + "</p>")
     return funfact
 
 
